@@ -24,14 +24,17 @@ SOFTWARE.
 #ifndef VIRTUAL
 #define VIRTUAL
 
-//#include"../../utility/definitions.h"
-//#include"../FORMAT/PACKAGE_JSON.h"
+
+#include"../JSON/PACKAGE_JSON.h"
 //#include"../STORAGE_SD/SD_API.h"
 
 #define JSON_OBJECT StaticJsonDocument<200>
 
 class VIRTUAL_MEMORY {
     public:
+        //Constructor - 2 overloads
+        //VIRTUAL_MEMORY(char (*function)());
+
         //Create container for variable
         void createVariableContainer(char* variableName);
         

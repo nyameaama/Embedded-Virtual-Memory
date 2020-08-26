@@ -21,30 +21,28 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include"Virtual_Mem.h"
+#ifndef JSON
+#define JSON
 
-//Create container for variable
-void VIRTUAL_MEMORY::createVariableContainer(char* variableName){
-    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
-    //SD_API *sdObject = new SD_API();
-    JSON_OBJECT file;
-    jsonObject -> addToJsonObject(file,variableName,0);
-    
-}
+#include"../lib/ArduinoJson-6.x/ArduinoJson.h"
+//#include"../../utility/definitions.h"
 
-//Delete variable container
-void VIRTUAL_MEMORY::deleteVariableContainer(char* variableName){
+#define JSON_OBJECT StaticJsonDocument<200> 
 
-}
 
-//Add value to variable container
-template<typename RT>
-RT VIRTUAL_MEMORY::addToVariableContainer(char* container, RT data){
+class PACKAGE_JSON {
+    public:
+        //Function serializes JSON object and returns JSON doc in array
+        char* serializeToJson(JSON_OBJECT object);
 
-}
+        //Function desirializes json doc array 
+        template<typename DEFINED>
+        DEFINED deserialize(char* jsonDoc);
 
-//Retrieve value from variable container
-template<typename RT>
-RT retrieveValueFromContainer(char* container){
+        //Function adds data to JSON object
+        template<typename DEFINED>
+        DEFINED addToJsonObject(JSON_OBJECT object,char* dataCategory, DEFINED data);
 
-}
+};
+
+#endif

@@ -21,30 +21,35 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include"Virtual_Mem.h"
+#include"PACKAGE_JSON.h"
 
-//Create container for variable
-void VIRTUAL_MEMORY::createVariableContainer(char* variableName){
-    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
-    //SD_API *sdObject = new SD_API();
-    JSON_OBJECT file;
-    jsonObject -> addToJsonObject(file,variableName,0);
-    
+//Function serializes JSON object and returns JSON doc in array
+char* PACKAGE_JSON::serializeToJson(JSON_OBJECT object){
+    //Return array
+    char* serialized;
+    //Serialize to JSON
+    serializeJson(object,serialized,200);
+    return serialized;
 }
 
-//Delete variable container
-void VIRTUAL_MEMORY::deleteVariableContainer(char* variableName){
+//Function desirializes json doc array 
+template<typename DEFINED>
+DEFINED PACKAGE_JSON::deserialize(char* jsonDoc){
+    //Create object
+    StaticJsonDocument<200> temp;
+    //Deserialize the JSON document
+    DeserializationError error = deserializeJson(temp, jsonDoc);
+    //Test if parsing succeeds.
+    if(error){
+        //Handle error
+    }
 
 }
 
-//Add value to variable container
-template<typename RT>
-RT VIRTUAL_MEMORY::addToVariableContainer(char* container, RT data){
-
-}
-
-//Retrieve value from variable container
-template<typename RT>
-RT retrieveValueFromContainer(char* container){
-
+//Function adds data to JSON object 
+template<typename DEFINED>
+DEFINED PACKAGE_JSON::addToJsonObject(JSON_OBJECT object,char* dataCategory, DEFINED data){
+    //Add data to JSON object
+    object[dataCategory] = data;
+    return data;
 }
