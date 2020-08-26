@@ -20,42 +20,43 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+/*
+    
 
-#ifndef VIRTUAL
-#define VIRTUAL
 
+*/
 
-#include"../JSON/PACKAGE_JSON.h"
-//#include"../STORAGE_SD/SD_API.h"
+#ifndef SD_
+#define SD_
 
-#define SD (uint8_t) 0
-#define FLASH (uint8_t) 1
+#include"../../cores/core-libs/SPI/src/SPI.h"
+#include"../../lib/SD-master/SD.h"
+//#include"../../utility/definitions.h"
+//#include"../../utility/utiltiyFunctions.h"
 
-#define INPUT_FUNCTION char* (*inputfunction)()
-#define OUTPUT_FUNCTION char* (*outputfunction)(char*)
+class SD_API {
+    private:
+        //Function to add file to available file registry
+        void registerFile(char* filename);
 
-#define JSON_OBJECT StaticJsonDocument<200>
+        //Function to create a file
+        char* createFile();
 
-class VIRTUAL_MEMORY {
-    public:
-        //Constructor - 2 overloads
-        VIRTUAL_MEMORY(INPUT_FUNCTION,OUTPUT_FUNCTION);
+        //Function to delete a file
+        void deleteFile(char* file);
 
-        VIRTUAL_MEMORY(uint8_t x);
+        char* getFileDir();
 
-        //Create container for variable
-        void createVariableContainer(char* variableName);
+        bool checkForFile(char* filename);
         
-        //Delete variable container
-        void deleteVariableContainer(char* variableName);
+    public:
+        //Function to add data to specified File
+        template<typename FileType>
+        int_32 addDataToFile(FileType data,char* file);
 
-        //Add value to variable container
-        template<typename RT>
-        RT addToVariableContainer(char* container, RT data);
+        char* readFileintoBuffer(char* file);
 
-        //Retrieve value from variable container
-        template<typename RT>
-        RT retrieveValueFromContainer(char* container);
+
 
 };
 
