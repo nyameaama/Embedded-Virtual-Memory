@@ -9,7 +9,7 @@ Virtual Memory API functions
 
 * Function Documentation
 
-            VIRTUAL_MEMORY(char*(*inputfunction)(char*),char* (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*))
+            VIRTUAL_MEMORY(char*(*inputfunction)(char*),void (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*))
 
 Parameters:
     * Input Function - Function pointer for external storage file data input

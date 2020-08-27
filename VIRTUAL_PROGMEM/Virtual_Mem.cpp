@@ -25,7 +25,7 @@ SOFTWARE.
 
 //Storing functions with function pointers
 char*(*inputF)(char*);
-char* (*outputF)(char*,char*);
+void (*outputF)(char*,char*);
 void (*createF)(char*);
 void (*deleteF)(char*);
 
@@ -38,7 +38,7 @@ Foreign Functions:
     Create
     Remove
 */
-VIRTUAL_MEMORY::VIRTUAL_MEMORY(char*(*inputfunction)(char*),char* (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*)){
+VIRTUAL_MEMORY::VIRTUAL_MEMORY(char*(*inputfunction)(char*),void (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*)){
     inputF = inputfunction;
     outputF = outputfunction;
     createF = createfile;
@@ -90,9 +90,9 @@ template<typename RT>
 RT retrieveValueFromContainer(char* container){
      PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
     //Get container by calling input function
-    char* container = inputF(container);
+    char* containerdata = inputF(container);
     //Deserialize and return value
-    auto deserializedvalue = jsonObject -> deserialize(container);
+    auto deserializedvalue = jsonObject -> deserialize(containerdata);
     delete jsonObject;
     return deserializedvalue;
 }

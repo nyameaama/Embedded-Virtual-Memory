@@ -38,7 +38,7 @@ Foreign Functions:
 #define FLASH (uint8_t) 1
 
 #define INPUT_FUNCTION char* (*inputfunction)(char*)
-#define OUTPUT_FUNCTION char* (*outputfunction)(char*,char*)
+#define OUTPUT_FUNCTION void (*outputfunction)(char*,char*)
 
 #define JSON_OBJECT StaticJsonDocument<50>
 
@@ -47,7 +47,7 @@ class VIRTUAL_MEMORY {
 
     public:
         //Constructor - 2 overloads
-        VIRTUAL_MEMORY(char*(*inputfunction)(char*),char* (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*));
+        VIRTUAL_MEMORY(char*(*inputfunction)(char*),void (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*));
 
         VIRTUAL_MEMORY(uint8_t x);
 
