@@ -2,20 +2,20 @@
 
 Virtual Memory API functions
 
-createVariableContainer(): 
-deleteVariableContainer():
-modifyVariableContainer():
-retrieveValueFromContainer():
+* createVariableContainer(): 
+* deleteVariableContainer():
+* modifyVariableContainer():
+* retrieveValueFromContainer():
 
 * Function Documentation
 
             VIRTUAL_MEMORY(char*(*inputfunction)(char*),char* (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*))
 
 Parameters:
-    Input Function - Function pointer for external storage file data input
-    Output Function - Function pointer for external storage file data output
-    Create Function - Function pointer for external storage file creation
-    Remove Function - Function pointer for external storage file deletion
+    * Input Function - Function pointer for external storage file data input
+    * Output Function - Function pointer for external storage file data output
+    * Create Function - Function pointer for external storage file creation
+    * Remove Function - Function pointer for external storage file deletion
 
 
 ---------------------------------------------------------
@@ -28,8 +28,8 @@ Returns:
     None
 
 Parameters:
-    Varaiable Name -> (char*)
-    Variable Data -> Template 
+    * Varaiable Name -> (char*)
+    * Variable Data -> Template 
 
 ---------------------------------------------------------
 
@@ -41,7 +41,7 @@ Returns:
     None
 
 Parameters:
-    Varaiable Name -> (char*)
+    * Varaiable Name -> (char*)
 
 ---------------------------------------------------------
 
@@ -53,8 +53,8 @@ Returns:
     None
 
 Parameters:
-    Varaiable Name -> (char*)
-    Variable Data -> Template
+    * Varaiable Name -> (char*)
+    * Variable Data -> Template
 
 --------------------------------------------------------
 
@@ -66,7 +66,7 @@ Returns:
     Container Value/Data -> Template
 
 Parameters:
-    Varaiable Name -> (char*)
+    * Varaiable Name -> (char*)
 
 ---------------------------------------------------------
 

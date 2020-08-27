@@ -90,7 +90,7 @@ template<typename RT>
 RT retrieveValueFromContainer(char* container){
      PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
     //Get container by calling input function
-    char* container;
+    char* container = inputF(container);
     //Deserialize and return value
     auto deserializedvalue = jsonObject -> deserialize(container);
     delete jsonObject;
