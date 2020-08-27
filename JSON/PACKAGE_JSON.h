@@ -41,7 +41,7 @@ class PACKAGE_JSON {
 
         //Function adds data to JSON object
         template<typename DEFINED>
-        DEFINED addToJsonObject(JSON_OBJECT object,char* dataCategory, DEFINED data);
+        DEFINED addToJsonObject(JSON_OBJECT object, DEFINED data);
 
 };
 

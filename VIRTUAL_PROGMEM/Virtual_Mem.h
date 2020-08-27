@@ -55,7 +55,7 @@ class VIRTUAL_MEMORY {
 
         //Retrieve value from variable container
         template<typename RT>
-        RT retrieveValueFromContainer(char* container);
+        RT retrieveValueFromContainer(char* variabeName);
 
 };
 

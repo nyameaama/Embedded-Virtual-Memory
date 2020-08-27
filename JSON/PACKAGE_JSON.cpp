@@ -23,6 +23,8 @@ SOFTWARE.
 
 #include"PACKAGE_JSON.h"
 
+char* placeholderTag = "Value";
+
 //Function serializes JSON object and returns JSON doc in array
 char* PACKAGE_JSON::serializeToJson(JSON_OBJECT object){
     //Return array
@@ -43,13 +45,13 @@ DEFINED PACKAGE_JSON::deserialize(char* jsonDoc){
     if(error){
         //Handle error
     }
-
+    return temp[placeholderTag];
 }
 
 //Function adds data to JSON object 
 template<typename DEFINED>
-DEFINED PACKAGE_JSON::addToJsonObject(JSON_OBJECT object,char* dataCategory, DEFINED data){
+DEFINED PACKAGE_JSON::addToJsonObject(JSON_OBJECT object,DEFINED data){
     //Add data to JSON object
-    object[dataCategory] = data;
+    object[placeholderTag] = data;
     return data;
 }

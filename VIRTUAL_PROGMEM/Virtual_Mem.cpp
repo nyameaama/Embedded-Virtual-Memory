@@ -29,21 +29,22 @@ void VIRTUAL_MEMORY::createVariableContainer(char* variableName){
     //SD_API *sdObject = new SD_API();
     //Create JSON object and add placeholder data
     JSON_OBJECT file;
-    jsonObject -> addToJsonObject(file,variableName,0);
+    jsonObject -> addToJsonObject(file,0);
     //Serialize Json
     jsonObject -> serializeToJson(file);
     //Output 
-
+    
+    delete jsonObject;
 }
 
 //Delete variable container
 void VIRTUAL_MEMORY::deleteVariableContainer(char* variableName){
-    
+
 }
 
 //Add value to variable container
 template<typename RT>
-RT VIRTUAL_MEMORY::addToVariableContainer(char* container, RT data){
+RT VIRTUAL_MEMORY::addToVariableContainer(char* variableName, RT data){
     //Get container
 
     //
