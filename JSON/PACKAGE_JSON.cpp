@@ -38,7 +38,7 @@ char* PACKAGE_JSON::serializeToJson(JSON_OBJECT object){
 template<typename DEFINED>
 DEFINED PACKAGE_JSON::deserialize(char* jsonDoc){
     //Create object
-    StaticJsonDocument<200> temp;
+    StaticJsonDocument<50> temp;
     //Deserialize the JSON document
     DeserializationError error = deserializeJson(temp, jsonDoc);
     //Test if parsing succeeds.

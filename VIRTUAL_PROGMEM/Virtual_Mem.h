@@ -20,6 +20,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+/*
+Foreign Functions:
+    Input
+    Output
+    Create
+    Remove
+*/
 
 #ifndef VIRTUAL
 #define VIRTUAL
@@ -34,14 +41,14 @@ SOFTWARE.
 #define INPUT_FUNCTION char* (*inputfunction)(char*)
 #define OUTPUT_FUNCTION char* (*outputfunction)(char*,char*)
 
-#define JSON_OBJECT StaticJsonDocument<200>
+#define JSON_OBJECT StaticJsonDocument<50>
 
 class VIRTUAL_MEMORY {
     private:
 
     public:
         //Constructor - 2 overloads
-        VIRTUAL_MEMORY(INPUT_FUNCTION,OUTPUT_FUNCTION);
+        VIRTUAL_MEMORY(char*(*inputfunction)(char*),char* (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*));
 
         VIRTUAL_MEMORY(uint8_t x);
 

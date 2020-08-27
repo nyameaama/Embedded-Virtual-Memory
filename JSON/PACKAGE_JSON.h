@@ -25,9 +25,8 @@ SOFTWARE.
 #define JSON
 
 #include"../lib/ArduinoJson-6.x/ArduinoJson.h"
-//#include"../../utility/definitions.h"
 
-#define JSON_OBJECT StaticJsonDocument<200> 
+#define JSON_OBJECT StaticJsonDocument<50> 
 
 
 class PACKAGE_JSON {

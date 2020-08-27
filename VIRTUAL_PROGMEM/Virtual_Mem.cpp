@@ -23,10 +23,26 @@ SOFTWARE.
 
 #include"Virtual_Mem.h"
 
+//Storing functions with function pointers
+char*(*inputF)(char*);
+char* (*outputF)(char*,char*);
+void (*createF)(char*);
+void (*deleteF)(char*);
 
 //Constructor - 2 overloads
-VIRTUAL_MEMORY::VIRTUAL_MEMORY(INPUT_FUNCTION,OUTPUT_FUNCTION){
-
+//Constructor parameters hold four task functions needed
+/*
+Foreign Functions:
+    Input
+    Output
+    Create
+    Remove
+*/
+VIRTUAL_MEMORY::VIRTUAL_MEMORY(char*(*inputfunction)(char*),char* (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*)){
+    inputF = inputfunction;
+    outputF = outputfunction;
+    createF = createfile;
+    deleteF = deletefile;
 }
 
 //Create container for variable
@@ -38,16 +54,16 @@ void VIRTUAL_MEMORY::createVariableContainer(char* variableName,RT data){
     JSON_OBJECT file;
     jsonObject -> addToJsonObject(file,data);
     //Serialize Json
-    jsonObject -> serializeToJson(file);
+    auto serialized = jsonObject -> serializeToJson(file);
     //Output 
-
+    outputF(variableName,serialized);
     delete jsonObject;
 }
 
 //Delete variable container
 void VIRTUAL_MEMORY::deleteVariableContainer(char* variableName){
     //When function is called file is deleted
-
+    deleteF(variableName);
 }
 
 //Add value to variable container
@@ -55,10 +71,18 @@ template<typename RT>
 RT VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, RT data){
     PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
     //Get container by calling input function 
-
+    auto container_data = inputF(variableName);
     //Deserialize data
-    jsonObject -> deserialize();
-
+    auto previousValue = jsonObject -> deserialize(container_data);
+    if(data != previousValue){
+        //Remove previous file
+        deleteF(variableName);
+        //Create new file
+        createVariableContainer(variableName,data);
+    }else{
+        //Leave the file alone
+    }
+    delete jsonObject;
 }
 
 //Retrieve value from variable container
@@ -71,5 +95,4 @@ RT retrieveValueFromContainer(char* container){
     auto deserializedvalue = jsonObject -> deserialize(container);
     delete jsonObject;
     return deserializedvalue;
-
 }
