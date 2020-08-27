@@ -9,7 +9,7 @@ retrieveValueFromContainer():
 
 * Function Documentation
 
-VIRTUAL_MEMORY(char*(*inputfunction)(char*),char* (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*))
+            VIRTUAL_MEMORY(char*(*inputfunction)(char*),char* (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*))
 
 Parameters:
     Input Function - Function pointer for external storage file data input
@@ -20,7 +20,7 @@ Parameters:
 
 ---------------------------------------------------------
 
-void createVariableContainer(char* variableName, RT data)
+            void createVariableContainer(char* variableName, RT data)
 
 This function creates container for a variable
 
@@ -33,7 +33,7 @@ Parameters:
 
 ---------------------------------------------------------
 
-void deleteVariableContainer(char* variableName)
+            void deleteVariableContainer(char* variableName)
 
 This function deletes a variable container
 
@@ -45,7 +45,7 @@ Parameters:
 
 ---------------------------------------------------------
 
-void modifyVariableContainer(char* variableName, RT data)
+            void modifyVariableContainer(char* variableName, RT data)
 
 This function modifies data inside a variable container
 
@@ -58,7 +58,7 @@ Parameters:
 
 --------------------------------------------------------
 
-void retrieveValueFromContainer(char* variableName)
+            void retrieveValueFromContainer(char* variableName)
 
 This function retrieves value from a variable container
 
