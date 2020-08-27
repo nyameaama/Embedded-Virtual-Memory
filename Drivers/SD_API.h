@@ -30,7 +30,7 @@ SOFTWARE.
 #define SD_
 
 #include"../../cores/core-libs/SPI/src/SPI.h"
-#include"../../lib/SD-master/SD.h"
+#include"../lib/SD-master/SD.h"
 //#include"../../utility/definitions.h"
 //#include"../../utility/utiltiyFunctions.h"
 

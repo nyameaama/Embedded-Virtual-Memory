@@ -31,12 +31,14 @@ SOFTWARE.
 #define SD (uint8_t) 0
 #define FLASH (uint8_t) 1
 
-#define INPUT_FUNCTION char* (*inputfunction)()
-#define OUTPUT_FUNCTION char* (*outputfunction)(char*)
+#define INPUT_FUNCTION char* (*inputfunction)(char*)
+#define OUTPUT_FUNCTION char* (*outputfunction)(char*,char*)
 
 #define JSON_OBJECT StaticJsonDocument<200>
 
 class VIRTUAL_MEMORY {
+    private:
+
     public:
         //Constructor - 2 overloads
         VIRTUAL_MEMORY(INPUT_FUNCTION,OUTPUT_FUNCTION);
@@ -44,14 +46,15 @@ class VIRTUAL_MEMORY {
         VIRTUAL_MEMORY(uint8_t x);
 
         //Create container for variable
-        void createVariableContainer(char* variableName);
+        template<typename RT>
+        void createVariableContainer(char* variableName,RT data);
         
         //Delete variable container
         void deleteVariableContainer(char* variableName);
 
         //Add value to variable container
         template<typename RT>
-        RT addToVariableContainer(char* container, RT data);
+        RT modifyVariableContainer(char* container, RT data);
 
         //Retrieve value from variable container
         template<typename RT>

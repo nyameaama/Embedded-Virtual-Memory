@@ -23,37 +23,53 @@ SOFTWARE.
 
 #include"Virtual_Mem.h"
 
+
+//Constructor - 2 overloads
+VIRTUAL_MEMORY::VIRTUAL_MEMORY(INPUT_FUNCTION,OUTPUT_FUNCTION){
+
+}
+
 //Create container for variable
-void VIRTUAL_MEMORY::createVariableContainer(char* variableName){
+template<typename RT>
+void VIRTUAL_MEMORY::createVariableContainer(char* variableName,RT data){
     PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
     //SD_API *sdObject = new SD_API();
     //Create JSON object and add placeholder data
     JSON_OBJECT file;
-    jsonObject -> addToJsonObject(file,0);
+    jsonObject -> addToJsonObject(file,data);
     //Serialize Json
     jsonObject -> serializeToJson(file);
     //Output 
-    
+
     delete jsonObject;
 }
 
 //Delete variable container
 void VIRTUAL_MEMORY::deleteVariableContainer(char* variableName){
+    //When function is called file is deleted
 
 }
 
 //Add value to variable container
 template<typename RT>
-RT VIRTUAL_MEMORY::addToVariableContainer(char* variableName, RT data){
-    //Get container
+RT VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, RT data){
+    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    //Get container by calling input function 
 
-    //
+    //Deserialize data
+    jsonObject -> deserialize();
+
 }
 
 //Retrieve value from variable container
 template<typename RT>
 RT retrieveValueFromContainer(char* container){
-    //Get container
+     PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    //Get container by calling input function
+    char* container;
+    //Deserialize and return value
+    auto deserializedvalue = jsonObject -> deserialize(container);
+    delete jsonObject;
+    return deserializedvalue;
 
-    //
 }
