@@ -24,7 +24,9 @@ SOFTWARE.
 #ifndef JSON
 #define JSON
 
-#include"../lib/ArduinoJson-6.x/ArduinoJson.h"
+#define INT 0
+
+#include<ArduinoJson.h>
 
 #define JSON_OBJECT StaticJsonDocument<50> 
 
@@ -35,12 +37,13 @@ class PACKAGE_JSON {
         char* serializeToJson(JSON_OBJECT object);
 
         //Function desirializes json doc array 
-        template<typename DEFINED>
-        DEFINED deserialize(char* jsonDoc);
+        const char* deserialize(char* jsonDoc);
+        int deserialize(char* jsonDoc,int type);
 
         //Function adds data to JSON object
-        template<typename DEFINED>
-        DEFINED addToJsonObject(JSON_OBJECT object, DEFINED data);
+        //+1 OVERLOAD
+        int32_t addToJsonObject(JSON_OBJECT object, int32_t data);
+        char* addToJsonObject(JSON_OBJECT object, char* data);
 
 };
 

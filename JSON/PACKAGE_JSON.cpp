@@ -34,9 +34,8 @@ char* PACKAGE_JSON::serializeToJson(JSON_OBJECT object){
     return serialized;
 }
 
-//Function desirializes json doc array 
-template<typename DEFINED>
-DEFINED PACKAGE_JSON::deserialize(char* jsonDoc){
+//Function deserializes json doc array 
+const char* PACKAGE_JSON::deserialize(char* jsonDoc){
     //Create object
     StaticJsonDocument<50> temp;
     //Deserialize the JSON document
@@ -45,12 +44,31 @@ DEFINED PACKAGE_JSON::deserialize(char* jsonDoc){
     if(error){
         //Handle error
     }
-    return temp[placeholderTag];
+    auto x = temp[placeholderTag].as<char*>();
+    return x;
+}
+int PACKAGE_JSON::deserialize(char* jsonDoc,int type){
+    //Create object
+    StaticJsonDocument<50> temp;
+    //Deserialize the JSON document
+    DeserializationError error = deserializeJson(temp, jsonDoc);
+    //Test if parsing succeeds.
+    if(error){
+        //Handle error
+    }
+    auto x = temp[placeholderTag].as<int>();
+    return x;
 }
 
+
 //Function adds data to JSON object 
-template<typename DEFINED>
-DEFINED PACKAGE_JSON::addToJsonObject(JSON_OBJECT object,DEFINED data){
+//+1 OVERLOAD
+int32_t addToJsonObject(JSON_OBJECT object, int32_t data){
+    //Add data to JSON object
+    object[placeholderTag] = data;
+    return data;
+}
+char* addToJsonObject(JSON_OBJECT object, char* data){
     //Add data to JSON object
     object[placeholderTag] = data;
     return data;
