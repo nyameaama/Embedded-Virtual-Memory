@@ -46,13 +46,30 @@ VIRTUAL_MEMORY::VIRTUAL_MEMORY(char*(*inputfunction)(char*),void (*outputfunctio
 }
 
 //Create container for variable
-template<typename RT>
-void VIRTUAL_MEMORY::createVariableContainer(char* variableName,RT data){
+// +1 OVERLOAD
+void VIRTUAL_MEMORY::createVariableContainer(char* variableName,int32_t data){
     PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
-    //SD_API *sdObject = new SD_API();
+    //Create file
+    createF(variableName);
     //Create JSON object and add placeholder data
     JSON_OBJECT file;
-    jsonObject -> addToJsonObject(file,data);
+    //jsonObject -> addToJsonObject(file,data);
+    file["Value"] = data;
+    //Serialize Json
+    auto serialized = jsonObject -> serializeToJson(file);
+    //Output 
+    outputF(variableName,serialized);
+    delete jsonObject;
+}
+void VIRTUAL_MEMORY::createVariableContainer(char* variableName,char* data){
+    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    //Create file
+    createF(variableName);
+    //Create JSON object and add placeholder data
+    JSON_OBJECT file;
+    //jsonObject -> addToJsonObject(file,data);
+    //Add data to JSON object
+    file["Value"] = data;
     //Serialize Json
     auto serialized = jsonObject -> serializeToJson(file);
     //Output 
@@ -67,11 +84,28 @@ void VIRTUAL_MEMORY::deleteVariableContainer(char* variableName){
 }
 
 //Add value to variable container
-template<typename RT>
-RT VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, RT data){
+// +1 OVERLOAD
+int32_t VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, int32_t data){
     PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
     //Get container by calling input function 
-    auto container_data = inputF(variableName);
+    char* container_data = inputF(variableName);
+    //Deserialize data
+    auto previousValue = jsonObject -> deserialize(container_data,INT);
+    if(data != previousValue){
+        //Remove previous file
+        deleteF(variableName);
+        //Create new file
+        createVariableContainer(variableName,data);
+    }else{
+        //Leave the file alone
+    }
+    delete jsonObject;
+    return data;
+}
+char* VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, char* data){
+    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    //Get container by calling input function 
+    char* container_data = inputF(variableName);
     //Deserialize data
     auto previousValue = jsonObject -> deserialize(container_data);
     if(data != previousValue){
@@ -83,11 +117,21 @@ RT VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, RT data){
         //Leave the file alone
     }
     delete jsonObject;
+    return data;
 }
 
 //Retrieve value from variable container
-template<typename RT>
-RT retrieveValueFromContainer(char* container){
+// +1 OVERLOAD
+int32_t retrieveValueFromContainer(char* container){
+     PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    //Get container by calling input function
+    char* containerdata = inputF(container);
+    //Deserialize and return value
+    auto deserializedvalue = jsonObject -> deserialize(containerdata,INT);
+    delete jsonObject;
+    return deserializedvalue;
+}
+const char* retrieveValueFromContainer(char* container,int x){
      PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
     //Get container by calling input function
     char* containerdata = inputF(container);
