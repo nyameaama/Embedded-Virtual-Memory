@@ -26,7 +26,7 @@ SOFTWARE.
 
 #define INT 0
 
-#include<ArduinoJson.h>
+#include"../ArduinoJson-6.x/ArduinoJson.h"
 
 #define JSON_OBJECT StaticJsonDocument<50> 
 

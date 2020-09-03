@@ -53,20 +53,21 @@ class VIRTUAL_MEMORY {
         VIRTUAL_MEMORY(uint8_t x);
 
         //Create container for variable
-        //template<typename RT>
+        // +1 OVERLOAD
         void createVariableContainer(char* variableName,int32_t data);
         void createVariableContainer(char* variableName,char* data);
 
         //Delete variable container
+        // +1 OVERLOAD
         void deleteVariableContainer(char* variableName);
 
         //Add value to variable container
-        //template<typename RT>
+        // +1 OVERLOAD
         int32_t modifyVariableContainer(char* variableName, int32_t data);
         char* modifyVariableContainer(char* variableName, char* data);
 
         //Retrieve value from variable container
-        //template<typename RT>
+        // +1 OVERLOAD
         int32_t retrieveValueFromContainer(char* variabeName);
         const char* retrieveValueFromContainer(char* variabeName,int x);
 

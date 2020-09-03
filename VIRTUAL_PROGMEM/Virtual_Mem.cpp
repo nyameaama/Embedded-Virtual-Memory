@@ -122,19 +122,19 @@ char* VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, char* data){
 
 //Retrieve value from variable container
 // +1 OVERLOAD
-int32_t retrieveValueFromContainer(char* container){
+int32_t VIRTUAL_MEMORY::retrieveValueFromContainer(char* variableName){
      PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
     //Get container by calling input function
-    char* containerdata = inputF(container);
+    char* containerdata = inputF(variableName);
     //Deserialize and return value
     auto deserializedvalue = jsonObject -> deserialize(containerdata,INT);
     delete jsonObject;
     return deserializedvalue;
 }
-const char* retrieveValueFromContainer(char* container,int x){
+const char* VIRTUAL_MEMORY::retrieveValueFromContainer(char* variableName,int x){
      PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
     //Get container by calling input function
-    char* containerdata = inputF(container);
+    char* containerdata = inputF(variableName);
     //Deserialize and return value
     auto deserializedvalue = jsonObject -> deserialize(containerdata);
     delete jsonObject;
