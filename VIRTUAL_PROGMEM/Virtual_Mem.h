@@ -45,17 +45,16 @@ Foreign Functions:
 
 class VIRTUAL_MEMORY {
     private:
-
+        //Create container for variable
+        // +1 OVERLOAD
+        void createVariableContainer(char* variableName,int32_t data);
+        void createVariableContainer(char* variableName,char* data);
+        
     public:
         //Constructor - 2 overloads
         VIRTUAL_MEMORY(char*(*inputfunction)(char*),void (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*));
 
         VIRTUAL_MEMORY(uint8_t x);
-
-        //Create container for variable
-        // +1 OVERLOAD
-        void createVariableContainer(char* variableName,int32_t data);
-        void createVariableContainer(char* variableName,char* data);
 
         //Delete variable container
         // +1 OVERLOAD

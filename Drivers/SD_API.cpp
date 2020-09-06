@@ -81,11 +81,11 @@ int_32 SD_API::addDataToFile(FileType data, char* file){
 
 char* SD_API::readFileintoBuffer(char* file){
     File temp;
-    //temp.open(file);
+    temp = SD.open(filename,FILE_READ);
     char* buffer;
     if(temp){
         while(temp.available()){
-            //buffer = temp.read();
+            buffer = temp.read();
         }
     }
     return buffer;
