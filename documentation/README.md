@@ -10,9 +10,18 @@ The library works as a modular system which means that unique mediums of data st
 
 When the library is accessed and data is prompted to be stored, the data is serialized into a JSON format. The serialized data is sent to the storage medium via the output function.
 
+<p align = "center">
+<img src = "https://github.com/nyameaama/Embedded-Virtual-Memory/blob/master/assets/Screen%20Shot%202020-09-15%20at%209.17.28%20AM.png" width = "195" height = "195"/>
+</p>
+
+
 <b> <i>Retrieving Stored Data: </b> </i>
 
 When the library is accessed and data is prompted to be retrieved, data is retrieve from the storage medium through the input function. The data is then deserialized and returned.
+
+<p align = "center">
+<img src = "https://github.com/nyameaama/Embedded-Virtual-Memory/blob/master/assets/Screen%20Shot%202020-09-15%20at%209.17.42%20AM.png" width = "195" height = "195"/>
+</p>
 
 ## <b> Storage Mediums </b> 
 
