@@ -1,7 +1,10 @@
 //#include<Arduino.h>
-#include<SPI.h>
-#include<SD.h>
-#include"Virtual_Mem.h"
+// Include SD lib dependencies
+
+/* #include<SPI.h>
+#include<SD.h> */
+
+#include"../VM.h"
 
 //Operation Functions prototypes:
 //Input
@@ -27,7 +30,7 @@ void setup(){
 void loop(){
     //Create a file with filename "ExampleFilename" and placeholer data "ExampleData"
     //Placeholder data can be of type char* and int
-    OperationObject ->createVariableContainer("ExampleFilename","ExampleData");
+    //OperationObject ->createVariableContainer("ExampleFilename","ExampleData");
 
     //Modify data in a specified file
     OperationObject ->modifyVariableContainer("ExampleFilename","ExampleNewData");

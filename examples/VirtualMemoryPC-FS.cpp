@@ -1,6 +1,6 @@
 #include<iostream>
 #include<fstream>
-#include"../VIRTUAL_PROGMEM/Virtual_Mem.h"
+#include"../VM.h"
 
 //Operation Functions prototypes:
 //Input
