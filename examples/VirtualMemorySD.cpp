@@ -33,10 +33,10 @@ void loop(){
     //OperationObject ->createVariableContainer("ExampleFilename","ExampleData");
 
     //Modify data in a specified file
-    OperationObject ->modifyVariableContainer("ExampleFilename","ExampleNewData");
+    OperationObject ->modifyVariableContainer("ExampleVariableName","ExampleNewData");
 
     //Retrieve data from a specified file 
-    OperationObject ->retrieveValueFromContainer("ExampleFilename");
+    OperationObject ->retrieveValueFromContainer("ExampleVariableName");
 
 
 }

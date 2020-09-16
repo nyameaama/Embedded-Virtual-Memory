@@ -23,10 +23,10 @@ int main(){
     //OperationObject ->createVariableContainer("ExampleFilename","ExampleData");
 
     //Modify data in a specified file
-    OperationObject ->modifyVariableContainer("EmbeddedVM_Test.txt","ExampleNewData");
+    OperationObject ->modifyVariableContainer("ExampleVariableName","ExampleNewData");
 
     //Retrieve data from a specified file 
-    OperationObject ->retrieveValueFromContainer("EmbeddedVM_Test.txt");
+    OperationObject ->retrieveValueFromContainer("ExampleVariableName");
 
 
 }
