@@ -29,34 +29,23 @@ SOFTWARE.
 #ifndef SD_
 #define SD_
 
-#include"../../cores/core-libs/SPI/src/SPI.h"
-#include"../lib/SD-master/SD.h"
-//#include"../../utility/definitions.h"
-//#include"../../utility/utiltiyFunctions.h"
+#include<SPI.h>
+#include"SD.h"
+
 
 class SD_API {
-    private:
-        //Function to add file to available file registry
-        void registerFile(char* filename);
-
-        //Function to create a file
-        char* createFile();
-
-        //Function to delete a file
-        void deleteFile(char* file);
-
-        char* getFileDir();
-
-        bool checkForFile(char* filename);
-        
     public:
-        //Function to add data to specified File
-        template<typename FileType>
-        int_32 addDataToFile(FileType data,char* file);
+        //Input
+        char* inputDatafromSD(char* filename);
 
-        char* readFileintoBuffer(char* file);
+        //Output
+        void outputDatatoSD(char* filename,char* data);
 
+        //Create
+        void createfileOnSD(char* filename);
 
+        //Remove
+        void deletefileOnSD(char* filename);
 
 };
 
