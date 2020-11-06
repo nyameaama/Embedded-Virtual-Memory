@@ -32,21 +32,17 @@ SOFTWARE.
 #include<SPI.h>
 #include"SD.h"
 
+//Input
+char* inputDatafromSD(char* filename);
 
-class SD_API {
-    public:
-        //Input
-        char* inputDatafromSD(char* filename);
+//Output
+void outputDatatoSD(char* filename,char* data);
 
-        //Output
-        void outputDatatoSD(char* filename,char* data);
+//Create
+void createfileOnSD(char* filename);
 
-        //Create
-        void createfileOnSD(char* filename);
+//Remove
+void deletefileOnSD(char* filename);
 
-        //Remove
-        void deletefileOnSD(char* filename);
-
-};
 
 #endif
