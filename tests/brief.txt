@@ -1,0 +1,10 @@
+Convert to char
+Parse
+
+Separators:
+
+data starter - "\\"
+data terminator - "//"
+data name/address - [name]
+data value - "()"
+data value pair - "(,,,)"

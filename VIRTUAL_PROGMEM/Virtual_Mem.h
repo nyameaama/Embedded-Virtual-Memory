@@ -32,7 +32,8 @@ Foreign Functions:
 #define VIRTUAL
 
 
-#include"../JSON/PACKAGE_JSON.h"
+#include"../Parser/PACKAGE_JSON.h"
+#include"../Parser/_nativeParser.h"
 
 #define INT 0
 #define SD (uint8_t) 0

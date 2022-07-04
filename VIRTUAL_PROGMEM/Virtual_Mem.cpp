@@ -48,33 +48,24 @@ VIRTUAL_MEMORY::VIRTUAL_MEMORY(char*(*inputfunction)(char*),void (*outputfunctio
 //Create container for variable
 // +1 OVERLOAD
 void VIRTUAL_MEMORY::createVariableContainer(char* variableName,int32_t data){
-    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
     //Create file
     createF(variableName);
-    //Create JSON object and add placeholder data
-    JSON_OBJECT file;
-    //jsonObject -> addToJsonObject(file,data);
-    file["Value"] = data;
-    //Serialize Json
-    auto serialized = jsonObject -> serializeToJson(file);
+    //Send data to be parsed to native format
+    char* formattedData = parserObject -> parseToVariable(variableName,data);
     //Output 
-    outputF(variableName,serialized);
-    delete jsonObject;
+    outputF(variableName,formattedData);
+    delete parserObject;
 }
 void VIRTUAL_MEMORY::createVariableContainer(char* variableName,char* data){
-    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+     _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
     //Create file
     createF(variableName);
-    //Create JSON object and add placeholder data
-    JSON_OBJECT file;
-    //jsonObject -> addToJsonObject(file,data);
-    //Add data to JSON object
-    file["Value"] = data;
-    //Serialize Json
-    auto serialized = jsonObject -> serializeToJson(file);
+    //Send data to be parsed to native format
+    char* formattedData = parserObject -> parseToVariable(variableName,data);
     //Output 
-    outputF(variableName,serialized);
-    delete jsonObject;
+    outputF(variableName,formattedData);
+    delete parserObject;
 }
 
 //Delete variable container
