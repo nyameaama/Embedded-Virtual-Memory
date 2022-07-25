@@ -1,3 +1,4 @@
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/nyameaama/Documents/Embedded-Virtual-Memory'
 make: Leaving directory `/Users/nyameaama/Documents/Embedded-Virtual-Memory'
  

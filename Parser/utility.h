@@ -21,10 +21,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef VM_
-#define VM_
+#ifndef _UTIL
+#define _UTIL
 
-#include"VIRTUAL_PROGMEM/Virtual_Mem.h"
+#include <stdint.h>
+#include<iostream>
 
+class VMUTIL{
+    public:
+        char* my_strcat(char* destination, const char* source);
 
-#endif //VM_
+        template <typename T>
+        int8_t lengthArray(T array);
+
+        bool AppendCharToCharArray( char *array, uint8_t n, char c );
+
+        void reverse(char str[], int length);
+
+        char* itoa(int num, char* str, int base);
+
+        int atoi(char* str);
+};
+
+#endif

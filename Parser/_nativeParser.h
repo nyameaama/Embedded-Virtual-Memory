@@ -25,6 +25,8 @@ SOFTWARE.
 #define _PARSER
 
 #include<stdint.h>
+#include<iostream>
+#include"utility.h"
 
 class _VIRTUAL_MEMORY_PARSER{
     public:
@@ -45,10 +47,9 @@ class _VIRTUAL_MEMORY_PARSER{
         char* dataToTemplate(char* templ,int32_t data);
         char* dataToTemplate(char* templ, char* data);
 
-        bool AppendCharToCharArray( char *array, size_t n, char c );
+        bool AppendCharToCharArray( char *array, uint8_t n, char c );
 
-        template <typename T>
-        int8_t lengthArray(T array);
+        char* readLastData(char* variableName);
 };
 
 #endif

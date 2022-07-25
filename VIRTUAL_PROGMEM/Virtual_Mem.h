@@ -31,9 +31,8 @@ Foreign Functions:
 #ifndef VIRTUAL
 #define VIRTUAL
 
-
-#include"../Parser/PACKAGE_JSON.h"
 #include"../Parser/_nativeParser.h"
+#include"../Parser/utility.h"
 
 #define INT 0
 #define SD (uint8_t) 0
@@ -42,16 +41,14 @@ Foreign Functions:
 #define INPUT_FUNCTION char* (*inputfunction)(char*)
 #define OUTPUT_FUNCTION void (*outputfunction)(char*,char*)
 
-#define JSON_OBJECT StaticJsonDocument<50>
 
 class VIRTUAL_MEMORY {
-    private:
+    public:
         //Create container for variable
         // +1 OVERLOAD
         void createVariableContainer(char* variableName,int32_t data);
         void createVariableContainer(char* variableName,char* data);
         
-    public:
         //Constructor - 2 overloads
         VIRTUAL_MEMORY(char*(*inputfunction)(char*),void (*outputfunction)(char*,char*),void (*createfile)(char*),void (*deletefile)(char*));
 

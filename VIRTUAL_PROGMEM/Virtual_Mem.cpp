@@ -49,16 +49,20 @@ VIRTUAL_MEMORY::VIRTUAL_MEMORY(char*(*inputfunction)(char*),void (*outputfunctio
 // +1 OVERLOAD
 void VIRTUAL_MEMORY::createVariableContainer(char* variableName,int32_t data){
     _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
+    VMUTIL *utilObject = new VMUTIL();
     //Create file
     createF(variableName);
     //Send data to be parsed to native format
+    char* dataX;
+    utilObject -> itoa(data,dataX,10);
     char* formattedData = parserObject -> parseToVariable(variableName,data);
     //Output 
     outputF(variableName,formattedData);
     delete parserObject;
+    delete utilObject;
 }
 void VIRTUAL_MEMORY::createVariableContainer(char* variableName,char* data){
-     _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
+    _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
     //Create file
     createF(variableName);
     //Send data to be parsed to native format
@@ -77,11 +81,12 @@ void VIRTUAL_MEMORY::deleteVariableContainer(char* variableName){
 //Add value to variable container
 // +1 OVERLOAD
 int32_t VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, int32_t data){
-    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
+    VMUTIL *utilObject = new VMUTIL();
     //Get container by calling input function 
     char* container_data = inputF(variableName);
-    //Deserialize data
-    auto previousValue = jsonObject -> deserialize(container_data,INT);
+    //Convert data to INT and get data on last line
+    auto previousValue = 0;
     if(data != previousValue){
         //Remove previous file
         deleteF(variableName);
@@ -90,15 +95,16 @@ int32_t VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, int32_t data
     }else{
         //Leave the file alone
     }
-    delete jsonObject;
+    delete parserObject;
+    delete utilObject;
     return data;
 }
 char* VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, char* data){
-    PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
     //Get container by calling input function 
     char* container_data = inputF(variableName);
     //Deserialize data
-    auto previousValue = jsonObject -> deserialize(container_data);
+    auto previousValue = "";//jsonObject -> deserialize(container_data);
     if(data != previousValue){
         //Remove previous file
         deleteF(variableName);
@@ -107,27 +113,27 @@ char* VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, char* data){
     }else{
         //Leave the file alone
     }
-    delete jsonObject;
+    delete parserObject;
     return data;
 }
 
 //Retrieve value from variable container
 // +1 OVERLOAD
 int32_t VIRTUAL_MEMORY::retrieveValueFromContainer(char* variableName){
-     PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
     //Get container by calling input function
     char* containerdata = inputF(variableName);
     //Deserialize and return value
-    auto deserializedvalue = jsonObject -> deserialize(containerdata,INT);
-    delete jsonObject;
-    return deserializedvalue;
+    //auto deserializedvalue = parserObject -> deserialize(containerdata,INT);
+    delete parserObject;
+    return 0;//deserializedvalue;
 }
 const char* VIRTUAL_MEMORY::retrieveValueFromContainer(char* variableName,int x){
-     PACKAGE_JSON *jsonObject = new PACKAGE_JSON();
+    _VIRTUAL_MEMORY_PARSER *parserObject = new _VIRTUAL_MEMORY_PARSER();
     //Get container by calling input function
     char* containerdata = inputF(variableName);
     //Deserialize and return value
-    auto deserializedvalue = jsonObject -> deserialize(containerdata);
-    delete jsonObject;
-    return deserializedvalue;
+    //auto deserializedvalue = jsonObject -> deserialize(containerdata);
+    delete parserObject;
+    return "0";//deserializedvalue;
 }

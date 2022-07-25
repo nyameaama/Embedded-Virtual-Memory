@@ -1,4 +1,4 @@
-//#include"../VIRTUAL_PROGMEM/Virtual_Mem.h"
+#include"../VIRTUAL_PROGMEM/Virtual_Mem.h"
 #include<iostream>
 #include<fstream>
 #include<stdlib.h>
@@ -12,8 +12,8 @@ void deleteF(char* name);
 char* sub = ".txt";
 
 int main(){
-    //VIRTUAL_MEMORY *pointer = new VIRTUAL_MEMORY(input,output,create,deleteF);
-    //pointer ->createVariableContainer("Temp",1);
+    VIRTUAL_MEMORY *pointer = new VIRTUAL_MEMORY(input,output,create,deleteF);
+    pointer -> createVariableContainer("Temp",1);
 
     //int value = pointer ->retrieveValueFromContainer("Temp");
     //std::cout << value;
@@ -24,7 +24,7 @@ int main(){
 
     //pointer ->deleteVariableContainer("Temp");
 
-    create("Temp");
+    //create("Temp");
     //delete pointer;
 }
 
