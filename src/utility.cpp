@@ -59,16 +59,20 @@ bool VMUTIL::AppendCharToCharArray( char *array, uint8_t n, char c )
 } 
 
 /* A utility function to reverse a string  */
-void VMUTIL::reverse(char str[], int length)
+char* VMUTIL::reverse(char *str)
 {
-    int start = 0;
-    int end = length -1;
-    while (start < end)
-    {
-        std::swap(*(str+start), *(str+end));
-        start++;
-        end--;
-    }
+    int i,len=0,n;
+  char temp;
+  len=strlen(str);
+  n=len-1;
+  for(i = 0; i <=(len/2); i++)
+  {
+    temp=str[i];
+    str[i]=str[n];
+    str[n]=temp;
+    n--;
+  }
+  return str;
 }
  
 // Implementation of itoa()
@@ -108,9 +112,9 @@ char* VMUTIL::itoa(int num, char* str, int base)
     str[i] = '\0'; // Append string terminator
  
     // Reverse the string
-    reverse(str, i);
+    char* val = reverse(str);
  
-    return str;
+    return val;
 }
 
 // Implementation of atoi()

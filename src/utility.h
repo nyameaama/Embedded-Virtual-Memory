@@ -36,7 +36,7 @@ class VMUTIL{
 
         bool AppendCharToCharArray( char *array, uint8_t n, char c );
 
-        void reverse(char str[], int length);
+        char* reverse(char *str);
 
         char* itoa(int num, char* str, int base);
 
