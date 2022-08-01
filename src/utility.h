@@ -26,21 +26,24 @@ SOFTWARE.
 
 #include <stdint.h>
 #include<iostream>
+#include<string>
 
 class VMUTIL{
     public:
-        char* my_strcat(char* destination, const char* source);
-
         template <typename T>
         int8_t lengthArray(T array);
 
-        bool AppendCharToCharArray( char *array, uint8_t n, char c );
+        char* strcat(char *dest, char *src);
 
         char* reverse(char *str);
 
-        char* itoa(int num, char* str, int base);
+        std::string itoa(int a);
 
         int atoi(char* str);
+
+        char* convert_to_c_str(std::string str);
+
+        char* strcpy(char *strDest, const char *strSrc);
 };
 
 #endif
