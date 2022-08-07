@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Fri Jul 29 00:26:00 2022
+# Make data base, printed on Sat Aug  6 15:08:53 2022
 
 # Variables
 
@@ -20,7 +20,7 @@ VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-PLATFORMIO_IDE = 2.5.0
+PLATFORMIO_IDE = 2.5.1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -40,11 +40,13 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/5b/dt608f751vb304ldw22k4jfc0000gn/T/vscode-ipc-f23e4a9b-7dbd-4101-9236-31d1f210ac48.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/5b/dt608f751vb304ldw22k4jfc0000gn/T/vscode-ipc-554c6617-c223-49ae-adcb-35c2c1f15b17.sock
 # environment
 VSCODE_CWD = /
 # environment
 NO_PROXY = 127.0.0.1
+# environment
+LaunchInstanceID = 75431243-C987-4ABE-9E90-15CA60DF3DF8
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -52,7 +54,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.WhHbGmVCtk/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.rNGu6OI7MG/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -84,7 +86,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-PATH = /usr/bin:/bin:/usr/sbin:/sbin
+PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 # environment
 SHLVL = 1
 # environment
@@ -131,6 +133,8 @@ MAKEFILES :=
 PLATFORMIO_CALLER = vscode
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a4
 # automatic
 ^F = $(notdir $^)
 # default
@@ -142,9 +146,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 54519
+VSCODE_PID = 622
 # variable set hash-table stats:
-# Load=66/1024=6%, Rehash=0, Collisions=3/87=3%
+# Load=68/1024=7%, Rehash=0, Collisions=3/89=3%
 
 # Pattern-specific Variable Values
 
@@ -152,9 +156,9 @@ VSCODE_PID = 54519
 
 # Directories
 
-# . (device 16777223, inode 51703602): 17 files, no impossibilities.
+# . (device 16777220, inode 51703602): 16 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -226,7 +230,7 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Fri Jul 29 00:26:00 2022
+# Finished Make data base on Sat Aug  6 15:08:53 2022
 
  
 make: *** No rule to make target `all'.  Stop.

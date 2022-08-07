@@ -1,29 +1,36 @@
-//#include"Virtual_Mem.h"
-#include<iostream>
-#include<fstream>
-#include"_nativeParser.h"
+ #include"Virtual_Mem.h"
+ #include<iostream>
 
-char* inputDatafromFS(char* filename);
-void outputDatatoFS(char* filename,char* data);
-void createfileOnFS(char* filename);
-void deletefileOnFS(char* filename);
-
-//g++ -o fullTest Stack_Unit_Test.cpp Virtual_Mem.cpp utility.cpp _nativeParser.cpp
-
-//g++ -o fullTest Stack_Unit_Test.cpp _nativeParser.cpp utility.cpp
-
-int main(){
+ int main(){
     char* name = "randVariable";
     char* dataChar = "data Sample";
-    //VIRTUAL_MEMORY *object = new VIRTUAL_MEMORY(inputDatafromFS,outputDatatoFS,createfileOnFS,deletefileOnFS);
-    //object -> createVariableContainer(name,dataChar);
+    char* empty = "";
+    char empty2[5];
+    char* num = "77";
+    char emp[4] = "hel";
+    char jhs[4] = "iop";
+    std::string val = "test";
+    int dataINT = 66;
+    //_VIRTUAL_MEMORY_PARSER *object = new _VIRTUAL_MEMORY_PARSER();
+    //object -> parseToVariable(name, dataINT);
     //delete object;
-    _VIRTUAL_MEMORY_PARSER *objt = new _VIRTUAL_MEMORY_PARSER();
-    //objt -> parseToVariable("container","sample");
-    std::cout << objt -> appendTemplate("container");
-    delete objt;
+    //VMUTIL* object2 = new VMUTIL();
+    //auto size = (sizeof(name) / sizeof(name[0]));
+    //std::cout << object2 -> reverse(name);//my_strcat(empty,dataChar);
+    //delete object2;
+    //std::cout << itoa(dataINT);
+    //AppendCharToCharArray(name, strlen(name), 'T');
+    //strcpy(empty2,emp);
+    //std::cout << empty2;
+    //char *ret = my_strcat(emp,jhs);
+    //std::cout << ret;
+    //char* yes = convert_to_c_str(val);
+    //std::cout << yes;
+    VIRTUAL_MEMORY *object = new VIRTUAL_MEMORY(inputDatafromFS,outputDatatoFS,createfileOnFS,deletefileOnFS);
+
     return 0;
 }
+
 
 //Operation Functions
 //Input

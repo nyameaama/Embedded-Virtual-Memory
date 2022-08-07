@@ -83,8 +83,8 @@ char* _VIRTUAL_MEMORY_PARSER::appendTemplate(char* address_name){
     object -> strcpy(tp2,tmp2);
     //Add {[address name + ]
     char* InitialTemplate = object -> strcat(tp2,dataNameB);
-    delete object;
-    return InitialTemplate;
+    //delete object;
+    return tmp1;
 }
 
  char* _VIRTUAL_MEMORY_PARSER::dataToTemplate(char* templ,int32_t data){
