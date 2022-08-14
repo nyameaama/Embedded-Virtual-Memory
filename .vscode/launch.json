@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/Users/nyameaama/Documents/Embedded-Virtual-Memory/src",
-      "program": "/Users/nyameaama/Documents/Embedded-Virtual-Memory/src/build/Debug/outDebug",
+      "cwd": "/Users/nyameaama/Documents/Embedded-Virtual-Memory",
+      "program": "/Users/nyameaama/Documents/Embedded-Virtual-Memory/build/Debug/outDebug",
       "MIMode": "gdb"
     }
   ]
