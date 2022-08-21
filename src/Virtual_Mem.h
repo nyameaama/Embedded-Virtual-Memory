@@ -31,8 +31,8 @@ Foreign Functions:
 #ifndef VIRTUAL
 #define VIRTUAL
 
-#include"_nativeParser.h"
-#include"utility.h"
+#include"Parser/_nativeParser.h"
+#include"utils/utility.h"
 
 #define INT 0
 #define SD (uint8_t) 0

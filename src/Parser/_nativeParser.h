@@ -27,7 +27,7 @@ SOFTWARE.
 #include<stdint.h>
 #include<iostream>
 #include<stdlib.h>
-#include"utility.h"
+#include"../utils/utility.h"
 #include<string>
 
 class _VIRTUAL_MEMORY_PARSER{

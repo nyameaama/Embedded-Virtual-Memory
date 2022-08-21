@@ -55,6 +55,8 @@ void VIRTUAL_MEMORY::createVariableContainer(char* variableName,int32_t data){
     //Send data to be parsed to native format
     char* dataX = utilObject -> convert_to_c_str(utilObject -> itoa(data));
     char* formattedData = parserObject -> parseToVariable(variableName,dataX);
+    char tempX[20];
+    strcpy(tempX,formattedData);
     //Output 
     outputF(variableName,formattedData);
     delete parserObject;
@@ -66,8 +68,10 @@ void VIRTUAL_MEMORY::createVariableContainer(char* variableName,char* data){
     createF(variableName);
     //Send data to be parsed to native format
     char* formattedData = parserObject -> parseToVariable(variableName,data);
+    char tempX[20];
+    strcpy(tempX,formattedData);
     //Output 
-    outputF(variableName,formattedData);
+    outputF(variableName,tempX);
     delete parserObject;
 }
 

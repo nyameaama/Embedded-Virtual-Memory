@@ -1,7 +1,7 @@
-//#include"Virtual_Mem.h"
+#include"../Virtual_Mem.h"
 #include<iostream>
 #include<fstream>
-#include"_nativeParser.h"
+//#include"_nativeParser.h"
 
 char* inputDatafromFS(char* filename);
 void outputDatatoFS(char* filename,char* data);
@@ -13,15 +13,17 @@ void deletefileOnFS(char* filename);
 //g++ -o fullTest Stack_Unit_Test.cpp _nativeParser.cpp utility.cpp
 
 int main(){
-    char* name = "randVariable";
-    char* dataChar = "data Sample";
-    //VIRTUAL_MEMORY *object = new VIRTUAL_MEMORY(inputDatafromFS,outputDatatoFS,createfileOnFS,deletefileOnFS);
-    //object -> createVariableContainer(name,dataChar);
-    //delete object;
-    _VIRTUAL_MEMORY_PARSER *objt = new _VIRTUAL_MEMORY_PARSER();
-    //objt -> parseToVariable("container","sample");
-    std::cout << objt -> appendTemplate("container");
-    delete objt;
+    char* name = "Rvariable";
+    char* dataChar = "Sample";
+    VIRTUAL_MEMORY *object = new VIRTUAL_MEMORY(inputDatafromFS,outputDatatoFS,createfileOnFS,deletefileOnFS);
+    object -> createVariableContainer(name,dataChar);
+    delete object;
+    //_VIRTUAL_MEMORY_PARSER *objt = new _VIRTUAL_MEMORY_PARSER();
+    //std::cout << objt -> parseToVariable("container",128);
+    //std::cout << objt -> appendTemplate("container");
+    //delete objt;
+
+    //outputDatatoFS("Rvariable","nyame");
     return 0;
 }
 

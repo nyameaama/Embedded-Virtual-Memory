@@ -9,6 +9,8 @@ char* my_strcat(char *dest,char *src);
 std::string itoa(int a);
 bool AppendCharToCharArray( char *array, uint8_t n, char c );
 char* convert_to_c_str(std::string str);
+char* appendTemplate(char* address_name);
+char* dataToTemplate(char* templ, char* data);
 
 int main(){
     char* name = "randVariable";
@@ -16,8 +18,9 @@ int main(){
     char* empty = "";
     char empty2[5];
     char* num = "77";
-    char emp[4] = "hel";
-    char jhs[4] = "iop";
+    char emp[4] = "{";
+    char jhs[20] = "container";
+    char jhX[20] = "dataPcK";
     std::string val = "test";
     int dataINT = 66;
     //_VIRTUAL_MEMORY_PARSER *object = new _VIRTUAL_MEMORY_PARSER();
@@ -30,12 +33,81 @@ int main(){
     //std::cout << itoa(dataINT);
     //AppendCharToCharArray(name, strlen(name), 'T');
     strcpy(empty2,emp);
-    std::cout << empty2;
+    //std::cout << empty2;
     char *ret = my_strcat(emp,jhs);
     //std::cout << ret;
-    char* yes = convert_to_c_str(val);
+    //char* yes = convert_to_c_str(val);
+    std::cout << appendTemplate(jhs);
+    //std::cout << dataToTemplate(appendTemplate(jhs), jhX);
     //std::cout << yes;
     return 0;
+}
+
+char* appendTemplate(char* address_name){
+    //9 CHARACTERS MAX
+    //Format address to addr char
+    char addr[sizeof(address_name)+2];
+    strcpy(addr,address_name);
+    char dataStarter[2] = "{";
+    char dataTerminator[2] = "}";
+    char dataNameA[2] = "[";
+    char dataNameB[2] = "]";
+    char dataPairSep[2] = ",";
+    //Temp Variables
+    char* tmp1;
+    char* tmp2;
+    //Add { + [
+    tmp1 = my_strcat(dataStarter,dataNameA);
+    //Copy char* result to char[]
+    char tp[10];
+    strcpy(tp,tmp1);
+    //Add {[ + address name
+    tmp2 = my_strcat(tp,addr);
+    //Copy char* result to char[]
+    char tp2[sizeof(address_name)+6];
+    strcpy(tp2,tmp2);
+    //Add {[address name + ]
+    char* InitialTemplate = my_strcat(tp2,dataNameB);
+    //delete object;
+    return InitialTemplate;
+}
+
+char* dataToTemplate(char* templ, char* data){
+    //Format data to data char
+    char _data[sizeof(data)+2];
+    strcpy(_data,data);
+
+    char _templ[20];
+    strcpy(_templ,templ);
+
+    char dataValueA[2] = "(";
+    char dataValueB[2] = ")";
+    char dataTerminator[2] = "}";
+    char dataPairSep[2] = ",";
+
+    //Temp Variables
+    char* tmp1;
+    char* tmp2;
+    char* tmp3;
+    //Add ( + data
+    tmp1 = my_strcat(dataValueA,_data);
+    //Copy char* result to char[]
+    char tp[sizeof(data)+10];
+    strcpy(tp,tmp1);
+    //Add (data + )
+    tmp2 = my_strcat(tp,dataValueB);
+    //Copy char* result to char[]
+    char tp2[sizeof(data)+10];
+    strcpy(tp2,tmp2);
+    //Add (data + ) + }
+    char* dataTemplate = my_strcat(tp2,dataTerminator);
+
+    char tp3[20];
+    strcpy(tp3,dataTemplate);
+
+    tmp3 = my_strcat(_templ,tp3);
+
+    return tmp3;
 }
 
 std::string itoa(int a)

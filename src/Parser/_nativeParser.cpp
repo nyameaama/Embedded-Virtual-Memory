@@ -60,31 +60,32 @@ char* _VIRTUAL_MEMORY_PARSER::parseToValuePair(char* address_name, int32_t *data
 
 char* _VIRTUAL_MEMORY_PARSER::appendTemplate(char* address_name){
     VMUTIL *object = new VMUTIL();
+    //9 CHARACTERS MAX
     //Format address to addr char
-    char addr[6];
+    char addr[sizeof(address_name)+2];
     object -> strcpy(addr,address_name);
-    char dataStarter[2] = {"{"};
-    char dataTerminator[2] = {"}"};
-    char dataNameA[2] = {"["};
-    char dataNameB[2] = {"]"};
-    char dataPairSep[2] = {","};
+    char dataStarter[2] = "{";
+    char dataTerminator[2] = "}";
+    char dataNameA[2] = "[";
+    char dataNameB[2] = "]";
+    char dataPairSep[2] = ",";
     //Temp Variables
     char* tmp1;
     char* tmp2;
     //Add { + [
     tmp1 = object -> strcat(dataStarter,dataNameA);
     //Copy char* result to char[]
-    char tp[5];
+    char tp[10];
     object -> strcpy(tp,tmp1);
     //Add {[ + address name
     tmp2 = object -> strcat(tp,addr);
     //Copy char* result to char[]
-    char tp2[10];
+    char tp2[sizeof(address_name)+6];
     object -> strcpy(tp2,tmp2);
     //Add {[address name + ]
     char* InitialTemplate = object -> strcat(tp2,dataNameB);
     //delete object;
-    return tmp1;
+    return InitialTemplate;
 }
 
  char* _VIRTUAL_MEMORY_PARSER::dataToTemplate(char* templ,int32_t data){
@@ -92,59 +93,79 @@ char* _VIRTUAL_MEMORY_PARSER::appendTemplate(char* address_name){
     //Convert int to char
     std::string convTmp = object -> itoa(data);
     char* convertedData = object -> convert_to_c_str(convTmp);
-    //Format data to data char
-    char _data[6];
+
+    char _data[sizeof(convertedData)+2];
     object -> strcpy(_data,convertedData);
-    char dataValueA[2] = {"("};
-    char dataValueB[2] = {")"};
-    char dataTerminator[2] = {"}"};
-    char dataPairSep[2] = {","};
+
+    char _templ[20];
+    object -> strcpy(_templ,templ);
+
+    char dataValueA[2] = "(";
+    char dataValueB[2] = ")";
+    char dataTerminator[2] = "}";
+    char dataPairSep[2] = ",";
 
     //Temp Variables
     char* tmp1;
     char* tmp2;
+    char* tmp3;
     //Add ( + data
     tmp1 = object -> strcat(dataValueA,_data);
     //Copy char* result to char[]
-    char tp[5];
+    char tp[sizeof(_data)+10];
     object -> strcpy(tp,tmp1);
     //Add (data + )
     tmp2 = object -> strcat(tp,dataValueB);
     //Copy char* result to char[]
-    char tp2[10];
+    char tp2[sizeof(_data)+10];
     object -> strcpy(tp2,tmp2);
     //Add (data + ) + }
     char* dataTemplate = object -> strcat(tp2,dataTerminator);
-    delete object;
-    return dataTemplate;
+
+    char tp3[20];
+    object -> strcpy(tp3,dataTemplate);
+
+    tmp3 = object -> strcat(_templ,tp3);
+
+    return tmp3;
 }
 
 char* _VIRTUAL_MEMORY_PARSER::dataToTemplate(char* templ, char* data){
     VMUTIL *object = new VMUTIL();
     //Format data to data char
-    char _data[6];
+    char _data[sizeof(data)+2];
     object -> strcpy(_data,data);
-    char dataValueA[2] = {"("};
-    char dataValueB[2] = {")"};
-    char dataTerminator[2] = {"}"};
-    char dataPairSep[2] = {","};
+
+    char _templ[20];
+    object -> strcpy(_templ,templ);
+
+    char dataValueA[2] = "(";
+    char dataValueB[2] = ")";
+    char dataTerminator[2] = "}";
+    char dataPairSep[2] = ",";
 
     //Temp Variables
     char* tmp1;
     char* tmp2;
+    char* tmp3;
     //Add ( + data
     tmp1 = object -> strcat(dataValueA,_data);
     //Copy char* result to char[]
-    char tp[5];
+    char tp[sizeof(data)+10];
     object -> strcpy(tp,tmp1);
     //Add (data + )
     tmp2 = object -> strcat(tp,dataValueB);
     //Copy char* result to char[]
-    char tp2[10];
+    char tp2[sizeof(data)+10];
     object -> strcpy(tp2,tmp2);
     //Add (data + ) + }
     char* dataTemplate = object -> strcat(tp2,dataTerminator);
-    delete object;
-    return dataTemplate;
+
+    char tp3[20];
+    object -> strcpy(tp3,dataTemplate);
+
+    tmp3 = object -> strcat(_templ,tp3);
+
+    return tmp3;
 }
 
