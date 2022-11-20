@@ -169,3 +169,6 @@ char* _VIRTUAL_MEMORY_PARSER::dataToTemplate(char* templ, char* data){
     return tmp3;
 }
 
+char* _VIRTUAL_MEMORY_PARSER::deriveDataFromTeplate(char* data){
+    
+}

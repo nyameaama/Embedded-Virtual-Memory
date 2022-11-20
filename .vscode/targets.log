@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Fri Aug 12 18:03:00 2022
+# Make data base, printed on Sun Nov 20 02:09:45 2022
 
 # Variables
 
@@ -18,7 +18,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-PLATFORMIO_IDE = 2.5.2
+PLATFORMIO_IDE = 2.5.5
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -31,8 +31,10 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile
-MAKEFILE_LIST := 
+# makefile (from `makefile', line 4)
+COMPILEFLAG = -c
+# makefile (from `makefile', line 1)
+MAKEFILE_LIST :=  makefile
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
@@ -40,13 +42,13 @@ VSCODE_CWD = /
 # environment
 NO_PROXY = 127.0.0.1
 # environment
-LaunchInstanceID = B567BBDB-1D69-4881-A44D-68410D79AF82
+LaunchInstanceID = D1C14501-3CB6-4A30-9040-3794C610C37D
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.0AW5YE0dWR/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9P5MQeFtw4/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -60,7 +62,7 @@ HOME = /Users/nyameaama
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/nyameaama/Library/Application Support/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
+VSCODE_CODE_CACHE_PATH = /Users/nyameaama/Library/Application Support/Code/CachedData/6261075646f055b99068d3688932416f2346dd3b
 # environment
 LOGNAME = nyameaama
 # environment
@@ -81,12 +83,16 @@ PATH = /usr/bin:/bin:/usr/sbin:/sbin
 SHLVL = 1
 # environment
 XPC_FLAGS = 0x0
+# makefile (from `makefile', line 5)
+BUILDFLAG = -o
+# makefile (from `makefile', line 3)
+CC = g++
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = nyameaama
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := build
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -98,7 +104,7 @@ TMPDIR = /var/folders/5b/dt608f751vb304ldw22k4jfc0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/nyameaama/Library/Application Support/Code/1.70.0-main.sock
+VSCODE_IPC_HOOK = /Users/nyameaama/Library/Application Support/Code/1.73.1-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -108,7 +114,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.103546374.103546380
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.118971459.118971467
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -126,7 +132,7 @@ PLATFORMIO_CALLER = vscode
 # environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186a3
+SECURITYSESSIONID = 186a4
 # automatic
 ^F = $(notdir $^)
 # default
@@ -138,9 +144,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 586
+VSCODE_PID = 516
 # variable set hash-table stats:
-# Load=64/1024=6%, Rehash=0, Collisions=3/85=4%
+# Load=67/1024=7%, Rehash=0, Collisions=4/83=5%
 
 # Pattern-specific Variable Values
 
@@ -148,9 +154,9 @@ VSCODE_PID = 586
 
 # Directories
 
-# . (device 16777225, inode 51703602): 16 files, no impossibilities.
+# . (device 16777220, inode 51703602): 15 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -161,11 +167,9 @@ VSCODE_PID = 586
 # Not a target:
 all:
 #  Command-line target.
-#  Implicit rule search has been done.
-#  File does not exist.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -174,24 +178,15 @@ all:
 #  File has not been updated.
 
 # Not a target:
-Makefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 makefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build: entry.o parser.o utils.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -199,31 +194,21 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-GNUmakefile:
-#  A default, MAKEFILES, or -include/sinclude makefile.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/17=0%
+# Load=5/1024=0%, Rehash=0, Collisions=0/6=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 0
-# # of strcache buffers: 0
-# strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
-# strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Aug 12 18:03:00 2022
+# Finished Make data base on Sun Nov 20 02:09:45 2022
 
  
-make: *** No rule to make target `all'.  Stop.
+makefile:8: *** missing separator.  Stop.
 

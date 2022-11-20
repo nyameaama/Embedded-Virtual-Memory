@@ -107,7 +107,7 @@ char* VIRTUAL_MEMORY::modifyVariableContainer(char* variableName, char* data){
     //Get container by calling input function 
     char* container_data = inputF(variableName);
     //Deserialize data
-    auto previousValue = "";//jsonObject -> deserialize(container_data);
+    auto previousValue = "";
     if(data != previousValue){
         //Remove previous file
         deleteF(variableName);

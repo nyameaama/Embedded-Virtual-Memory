@@ -52,6 +52,8 @@ class _VIRTUAL_MEMORY_PARSER{
         bool AppendCharToCharArray( char *array, uint8_t n, char c );
 
         char* readLastData(char* variableName);
+
+        char* deriveDataFromTeplate(char* data);
 };
 
 #endif
